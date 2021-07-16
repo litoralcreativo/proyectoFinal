@@ -1,4 +1,15 @@
-Variables a agregar en el .env
+Admin user: 
+  - username: admin
+  - pass: admin
+  
+Normal user:
+  - username: ole1234
+  - pass: elo1234
+
+
+
+
+<--------- Variables a agregar en el .env: ----------->
 
 #mail 
 MAIL_SERVICE = 'gmail'
