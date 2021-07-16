@@ -1,0 +1,57 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-admin-dark" style="z-index: 10; position: absolute; width: 100%">
+  <div class="container">
+    <a class="navbar-brand" href="#"><img src="/images/logogray.png" style="height: 50px" alt="logo"></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav" style="width: 100%">
+        <a class="nav-link" href="/admin">Home</a>
+        <a class="nav-link active" aria-current="page" href="/admin/users">Usuarios</a>
+        <a class="nav-link" href="/admin/ingredientes">Ingredientes</a>
+        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Docs</a>
+        <a class="nav-link ms-auto" href="/logout"><i class="fas fa-sign-out-alt"></i>&nbsp Logout</a>
+      </div>
+    </div>
+  </div>
+</nav>
+<div class="container-fluid d-flex justify-content-center align-items-center bg-light" style="height: 100vh;">
+    <div class="row">
+        <div class="col p-3 bg-light custom-form">
+            <form method="post" action="/admin/users/update/{{id}}">
+                <label for="username" class="form-label">Username</label>
+                <div class="input-group input-group-lg mb-3">
+                    <input type="text" class="form-control" aria-describedby="inputGroup-sizing-lg"  value={{username}} name="username" >
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <label for="nombre" class="form-label">Nombre</label>
+                        <input type="text" class="form-control" value={{nombre}}  name="nombre" >
+                    </div>
+                    <div class="col">
+                        <label for="apellido" class="form-label">Apellido</label>
+                        <input type="text" class="form-control" value={{apellido}}  name="apellido" >
+                    </div>
+                </div>
+                <hr>
+                <div class="input-group mb-3">
+                    <span class="input-group-text">Email</span>
+                    <input type="text" class="form-control" value={{email}}  name="email" >
+                </div>
+                <div class="input-group mb-3">
+                    <span class="input-group-text">Telefono</span>
+                    <input type="text" class="form-control" value={{phone}}  name="phone" >
+                </div>
+                <hr>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" {{#if a}}checked{{/if}} id="admin" name="admin">
+                    <label class="form-check-label" for="admin">
+                        Cuenta administrador
+                    </label>
+                </div>
+                <p class="text-danger">{{message}}</p>
+                <button type="submit" class="btn btn-custom-light">Actualizar usuario</button>
+            </form>
+        </div>
+    </div>
+</div>

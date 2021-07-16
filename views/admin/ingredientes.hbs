@@ -1,0 +1,84 @@
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-admin-dark" style="z-index: 10; width: 100%">
+  <div class="container">
+    <a class="navbar-brand" href="#"><img src="/images/logogray.png" style="height: 50px" alt="logo"></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav" style="width: 100%">
+        <a class="nav-link" href="/admin">Home</a>
+        <a class="nav-link" href="/admin/users">Usuarios</a>
+        <a class="nav-link active" aria-current="page" href="/admin/ingredientes">Ingredientes</a>
+        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Docs</a>
+        <a class="nav-link ms-auto" href="/logout"><i class="fas fa-sign-out-alt"></i>&nbsp Logout</a>
+      </div>
+    </div>
+  </div>
+</nav>
+<div class="container-fluid d-flex flex-row justify-content-center align-items-center mt-5" style=" padding: 0; height: 100%;">
+    <div class="row container">
+        <div class="col">
+            <table class="table table-hover text-center">
+                <thead>
+                    <th>Nombre</th>
+                    <th>Parte</th>
+                    <th>Estado</th>
+                    <th>Imagen</th>
+                    <th>Stock</th>
+                    <th>Precio</th>
+                    <th>&nbsp</th>
+                </thead>
+                <tbody>
+                    {{#each ingredientes}}
+                    <tr style="vertical-align: middle;">
+                      <td>{{nombre}}</td>
+                      <td>{{nombreParte}}</td>
+                      <td>{{nombreEstado}}</td>
+                      <td>
+                        <img class="table-img" src="/images/{{uid}}" alt="no hay imagen">
+                      </td>
+                      <td>{{stock}} g</td>
+                      <td>${{precio}} /kg</td>
+                      <td>
+                          <a class="btn btn-custom-light" href="/admin/ingredientes/single/{{id}}"><i class="fas fa-eye"></i> Ver mas</a>
+                          <a class="btn btn-custom-success" href="/admin/ingredientes/update/{{id}}" data-bs-toggle="tooltip" data-bs-placement="top" title="editar"><i class="fas fa-edit"></i></a>
+                          <!-- Button trigger modal -->
+                          <button type="button" class="btn btn-danger" onclick="addLabel('{{nombre}}', {{id}})" data-bs-toggle="modal" data-bs-target="#confirmationModal" data-bs-toggle="tooltip" data-bs-placement="top" title="borrar">
+                            <i class="fas fa-trash-alt"></i>
+                          </button>
+                      </td>
+                    </tr>
+                    {{/each}}
+                </tbody>
+            </table>
+            
+            <!-- Modal -->
+            <div class="modal fade" id="confirmationModal" tabindex="-1" aria-labelledby="modalLabel" aria-hidden="true">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="modalLabel">Modal title</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                    Desea eliminar este ingrediente?
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <a class="btn btn-danger" id="modalDeleteBtn" href="#"><i class="fas fa-trash-alt"></i> Eliminar</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+  const addLabel = (title, id) =>
+  {
+    modalLabel.innerText = title;
+    modalDeleteBtn.href = `/admin/ingredientes/delete/${id}/`+{{id}}
+  }
+</script>

@@ -1,0 +1,42 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-admin-dark" style="z-index: 10; width: 100%">
+  <div class="container">
+    <a class="navbar-brand" href="#"><img src="/images/logogray.png" style="height: 50px" alt="logo"></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav" style="width: 100%">
+        <a class="nav-link" href="/admin">Home</a>
+        <a class="nav-link active" aria-current="page" href="/admin/users">Usuarios</a>
+        <a class="nav-link" href="/admin/ingredientes">Ingredientes</a>
+        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Docs</a>
+        <a class="nav-link ms-auto" href="/logout"><i class="fas fa-sign-out-alt"></i>&nbsp Logout</a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<div class="container-fluid d-flex flex-row justify-content-center align-items-center mt-5" style=" padding: 0; height: 100%;">
+    <div class="row container">
+        <div class="col">
+            <table class="table table-hover text-center">
+                <thead>
+                    <th>Username</th> 
+                    <th>Nombre</th>
+                    <th>Apellido</th>
+                    <th>Ver mas</th>
+                </thead>
+                <tbody>
+                    {{#each usuarios}}
+                     <tr style="vertical-align: middle;">
+                         <td>{{username}}&nbsp&nbsp{{#if admin}}<i class="fas fa-user-tie icon-gold" data-bs-toggle="tooltip" data-bs-placement="top" title="administrador"></i>{{/if}}</td>
+                         <td>{{nombre}}</td>
+                         <td>{{apellido}}</td>
+                         <td><a class="btn btn-custom-light" href="/admin/users/single/{{id}}"><i class="fas fa-eye"></i> Ver mas</a></td>
+                     </tr>
+                    {{/each}}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

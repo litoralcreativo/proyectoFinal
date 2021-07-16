@@ -1,0 +1,56 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark" style="z-index: 10; position: absolute; width: 100%">
+  <div class="container">
+    <a class="navbar-brand" href="#"><img src="/images/logogray.png" style="height: 50px" alt="logo"></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <a class="nav-link" href="/">Home</a>
+        <a class="nav-link" href="/login">Login</a>
+        <a class="nav-link active" aria-current="page" href="/registro">Register</a>
+        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Docs</a>
+      </div>
+    </div>
+  </div>
+</nav>
+<div class="container-fluid d-flex justify-content-center align-items-center bg-light home-bg" style=" padding: 0; height: 100vh;">
+    <div class="indexbox-content bg-custom-dark-translucid-radial text-dark" style="width: 100%;">
+        <div class="row">
+            <div class="col p-3 bg-light custom-form">
+                <form method="post" action="/registro">
+                    <div class="row mb-3">
+                        <div class="col">
+                            <label for="nombre" class="form-label">Nombre</label>
+                            <input type="text" class="form-control" name="nombre" id="nombre">
+                        </div>
+                        <div class="col">
+                            <label for="apellido" class="form-label">Apellido</label>
+                            <input type="text" class="form-control" name="apellido" id="apellido">
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Direccion de email</label>
+                        <input type="email" class="form-control" name="email">
+                    </div>
+                    <div class="mb-3">
+                        <label for="phone" class="form-label">Numero telefonico</label>
+                        <input type="tel" class="form-control" name="phone">
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col">
+                            <label for="username" class="form-label">Nombre de usuario</label>
+                            <input type="text" class="form-control" name="username">
+                        </div>
+
+                        <div class="col">
+                            <label for="pass" class="form-label">Password</label>
+                            <input type="password" class="form-control" name="pass">
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-custom-light">Registrar</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
